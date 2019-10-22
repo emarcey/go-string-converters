@@ -30,6 +30,11 @@ func PascalCase(s string) string {
 	return output.String()
 }
 
+// alias since PascalCase and UpperCamelCase are synonyms
+func UpperCamelCase(s string) string {
+	return PascalCase(s)
+}
+
 func ConvertSnakeCaseToPascalCase(s string) string {
 	return ConvertToPascalCase(s, '_')
 }

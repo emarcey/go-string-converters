@@ -34,6 +34,11 @@ func CamelCase(s string) string {
 	return output.String()
 }
 
+// alias since CamelCase and LowerCamelCase are synonyms
+func LowerCamelCase(s string) string {
+	return CamelCase(s)
+}
+
 func ConvertSnakeCaseToCamelCase(s string) string {
 	return ConvertToCamelCase(s, '_')
 }
