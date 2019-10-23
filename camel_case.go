@@ -13,7 +13,7 @@ func CamelCase(s string) string {
 	nextUpper := false
 	isFirst := true
 	for _, r := range s {
-		if unicode.IsPunct(r) || unicode.IsSpace(r) {
+		if IsSeparator(r) {
 			if !isFirst {
 				nextUpper = true
 			}

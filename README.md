@@ -9,6 +9,9 @@ Some little helpers to make convert go strings around
     * l337
         * Basic implementation, only does a handful of number-letter conversions
         * Has functions to encode and decode
-    * snake_case (TO DO)
-    * kebab-case (TO DO)
-    * sentence case (TO DO)
+    * snake_case:
+        * Aggressive converter that converts any punctuation or PascalCase/camelCase to snake_case
+        * Both regular (lowercase) and SCREAMING variants
+    * kebab-case:
+        * Aggressive converter that converts any punctuation or PascalCase/camelCase to kebab-case
+        * Both regular (lowercase) and SCREAMING variants

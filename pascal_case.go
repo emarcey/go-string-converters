@@ -12,7 +12,7 @@ func PascalCase(s string) string {
 	var output strings.Builder
 	nextUpper := true
 	for _, r := range s {
-		if unicode.IsPunct(r) || unicode.IsSpace(r) {
+		if IsSeparator(r) {
 			nextUpper = true
 			continue
 		}
