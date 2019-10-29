@@ -1,6 +1,7 @@
 package gostringconverters
 
 import (
+	"reflect"
 	"testing"
 )
 
@@ -152,6 +153,128 @@ func TestIsSeparator(t *testing.T) {
 		result := IsSeparator(testCase.given)
 		if result != testCase.expected {
 			t.Error("test", i, "given", testCase.given, "expected", testCase.expected, "result", result)
+		}
+	}
+}
+
+func TestRuneMapToStringConversion(t *testing.T) {
+	var testCases = []struct {
+		givenS             string
+		givenM             map[rune]string
+		givenCaseSensitive bool
+		expected           string
+	}{
+		{
+			givenS:             "",
+			givenM:             map[rune]string{},
+			givenCaseSensitive: false,
+			expected:           "",
+		},
+		{
+			givenS:             "abc",
+			givenM:             map[rune]string{},
+			givenCaseSensitive: false,
+			expected:           "abc",
+		},
+		{
+			givenS: "abc",
+			givenM: map[rune]string{
+				'a': "this",
+				'b': "is",
+				'c': "cool",
+			},
+			givenCaseSensitive: false,
+			expected:           "thisiscool",
+		},
+		{
+			givenS: "abc",
+			givenM: map[rune]string{
+				'A': "this",
+				'B': "is",
+				'C': "cool",
+			},
+			givenCaseSensitive: false,
+			expected:           "thisiscool",
+		},
+		{
+			givenS: "abc",
+			givenM: map[rune]string{
+				'A': "this",
+				'B': "is",
+				'C': "cool",
+			},
+			givenCaseSensitive: true,
+			expected:           "abc",
+		},
+	}
+
+	for i, testCase := range testCases {
+		result := RuneMapToStringConversion(testCase.givenS, testCase.givenM, testCase.givenCaseSensitive)
+		if result != testCase.expected {
+			t.Error("test", i, "given", testCase.givenS, "and", testCase.givenM, "and", testCase.givenCaseSensitive, "expected", testCase.expected, "result", result)
+		}
+	}
+}
+
+func TestDecomposeMapStringToRune(t *testing.T) {
+	var testCases = []struct {
+		givenM             map[string]rune
+		givenCaseSensitive bool
+		expected           map[rune]DecomposedRune
+	}{
+		{
+			givenM: map[string]rune{
+				"a": 'a',
+			},
+			givenCaseSensitive: false,
+			expected: map[rune]DecomposedRune{
+				'A': DecomposedRune{
+					NextRunes: make(map[rune]DecomposedRune),
+					Value:     'a',
+				},
+			},
+		},
+		{
+			givenM: map[string]rune{
+				"a": 'a',
+				"A": 'a',
+			},
+			givenCaseSensitive: false,
+			expected: map[rune]DecomposedRune{
+				'A': DecomposedRune{
+					NextRunes: make(map[rune]DecomposedRune),
+					Value:     'a',
+				},
+			},
+		},
+		{
+			givenM: map[string]rune{
+				"a":   'a',
+				"abc": 'b',
+			},
+			givenCaseSensitive: false,
+			expected: map[rune]DecomposedRune{
+				'A': DecomposedRune{
+					Value: 'a',
+					NextRunes: map[rune]DecomposedRune{
+						'B': DecomposedRune{
+							NextRunes: map[rune]DecomposedRune{
+								'C': DecomposedRune{
+									Value:     'b',
+									NextRunes: make(map[rune]DecomposedRune),
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	for i, testCase := range testCases {
+		result := DecomposeMapStringToRune(testCase.givenM, testCase.givenCaseSensitive)
+		if !reflect.DeepEqual(result, testCase.expected) {
+			t.Error("test", i, "given", testCase.givenM, "and", testCase.givenCaseSensitive, "expected", testCase.expected, "result", result)
 		}
 	}
 }
