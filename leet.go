@@ -1,5 +1,9 @@
 package gostringconverters
 
+import (
+	"strings"
+)
+
 var (
 	basicToLeetMap = map[rune]rune{
 		'a': '4',
@@ -12,22 +16,22 @@ var (
 	}
 
 	basicFromLeetMap = map[rune]rune{
-		'a': '4',
-		'e': '3',
-		'g': '6',
-		'i': '1',
-		'o': '0',
-		's': '5',
-		't': '7',
+		'4': 'a',
+		'3': 'e',
+		'6': 'g',
+		'1': 'i',
+		'0': 'o',
+		'5': 's',
+		'7': 't',
 	}
 )
 
 // ToLeetBasic - converts a string to Leet using basic Leet values
 func ToLeetBasic(s string) string {
-	return RuneMapConversion(s, basicToLeetMap)
+	return strings.Map(runeMapToMapFunc(basicToLeetMap), s)
 }
 
 // FromLeetBasic - converts a string from Leet using basic Leet values
 func FromLeetBasic(s string) string {
-	return RuneMapConversion(s, basicFromLeetMap)
+	return strings.Map(runeMapToMapFunc(basicFromLeetMap), s)
 }

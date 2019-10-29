@@ -24,6 +24,10 @@ func TestToLeetBasic(t *testing.T) {
 			given:    leetKeys,
 			expected: leetValues,
 		},
+		{
+			given:    "leet hacker",
+			expected: "l337 h4ck3r",
+		},
 	}
 	for i, testCase := range testCases {
 		result := ToLeetBasic(testCase.given)
@@ -52,6 +56,10 @@ func TestFromLeetBasic(t *testing.T) {
 		{
 			given:    leetKeys,
 			expected: leetValues,
+		},
+		{
+			given:    "l337 h4ck3r",
+			expected: "leet hacker",
 		},
 	}
 	for i, testCase := range testCases {
