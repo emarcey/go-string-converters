@@ -28,10 +28,10 @@ var (
 
 // ToLeetBasic - converts a string to Leet using basic Leet values
 func ToLeetBasic(s string) string {
-	return strings.Map(runeMapToMapFunc(basicToLeetMap), s)
+	return strings.Map(RuneMapToMapFunc(basicToLeetMap), s)
 }
 
 // FromLeetBasic - converts a string from Leet using basic Leet values
 func FromLeetBasic(s string) string {
-	return strings.Map(runeMapToMapFunc(basicFromLeetMap), s)
+	return strings.Map(RuneMapToMapFunc(basicFromLeetMap), s)
 }
