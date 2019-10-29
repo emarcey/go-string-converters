@@ -1,3 +1,5 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/emarcey/go-string-converters)](https://goreportcard.com/report/github.com/emarcey/go-string-converters)
+
 # go-string-converters
 Some little helpers to make convert go strings around
 
