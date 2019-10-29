@@ -1,0 +1,16 @@
+language: go
+
+go:
+- 1.x
+- master
+
+go_import_path: github.com/emarcey/go-string-converters
+
+install:
+  - go get -t -v ./...
+  - go get -u golang.org/x/lint/golint
+
+script:
+  - go vet
+  - golint
+  - go test -v -race ./...
