@@ -1,7 +1,7 @@
 package gostringconverters
 
 var (
-	BASIC_TO_LEET_MAP = map[rune]rune{
+	basicToLeetMap = map[rune]rune{
 		'a': '4',
 		'e': '3',
 		'g': '6',
@@ -11,7 +11,7 @@ var (
 		't': '7',
 	}
 
-	BASIC_FROM_LEET_MAP = map[rune]rune{
+	basicFromLeetMap = map[rune]rune{
 		'a': '4',
 		'e': '3',
 		'g': '6',
@@ -22,10 +22,12 @@ var (
 	}
 )
 
+// ToLeetBasic - converts a string to Leet using basic Leet values
 func ToLeetBasic(s string) string {
-	return RuneMapConversion(s, BASIC_TO_LEET_MAP)
+	return RuneMapConversion(s, basicToLeetMap)
 }
 
+// FromLeetBasic - converts a string from Leet using basic Leet values
 func FromLeetBasic(s string) string {
-	return RuneMapConversion(s, BASIC_FROM_LEET_MAP)
+	return RuneMapConversion(s, basicFromLeetMap)
 }

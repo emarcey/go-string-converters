@@ -5,7 +5,7 @@ import (
 	"unicode"
 )
 
-// Punctuation Aggressive CamelCase converter
+// CamelCase - Punctuation Aggressive CamelCase converter.
 // Will treat any space or punctuation as a separator
 func CamelCase(s string) string {
 	// this is a string -> thisIsAString
@@ -34,23 +34,27 @@ func CamelCase(s string) string {
 	return output.String()
 }
 
-// alias since CamelCase and LowerCamelCase are synonyms
+// LowerCamelCase - alias since CamelCase and LowerCamelCase are synonyms
 func LowerCamelCase(s string) string {
 	return CamelCase(s)
 }
 
+// ConvertSnakeCaseToCamelCase - wrapper for CovertToCamelCase for specific separator (_)
 func ConvertSnakeCaseToCamelCase(s string) string {
 	return ConvertToCamelCase(s, '_')
 }
 
+// ConvertKebabCaseToCamelCase - wrapper for CovertToCamelCase for specific separator (-)
 func ConvertKebabCaseToCamelCase(s string) string {
 	return ConvertToCamelCase(s, '-')
 }
 
+// ConvertSentenceCaseToCamelCase - wrapper for CovertToCamelCase for specific separator (space)
 func ConvertSentenceCaseToCamelCase(s string) string {
 	return ConvertToCamelCase(s, ' ')
 }
 
+// ConvertToCamelCase - Simple CamelCase converter that splits on a single separator
 func ConvertToCamelCase(s string, sep rune) string {
 	// this is a string -> ThisIsAString
 	var output strings.Builder

@@ -5,7 +5,7 @@ import (
 	"unicode"
 )
 
-// Punctuation Aggressive PascalCase converter
+// PascalCase - Punctuation Aggressive PascalCase converter
 // Will treat any space or punctuation as a separator
 func PascalCase(s string) string {
 	// this is a string -> ThisIsAString
@@ -30,24 +30,27 @@ func PascalCase(s string) string {
 	return output.String()
 }
 
-// alias since PascalCase and UpperCamelCase are synonyms
+// UpperCamelCase - alias since PascalCase and UpperCamelCase are synonyms
 func UpperCamelCase(s string) string {
 	return PascalCase(s)
 }
 
+// ConvertSnakeCaseToPascalCase - wrapper for ConvertToPascalCase for specific separator (_)
 func ConvertSnakeCaseToPascalCase(s string) string {
 	return ConvertToPascalCase(s, '_')
 }
 
+// ConvertKebabCaseToPascalCase - wrapper for ConvertToPascalCase for specific separator (-)
 func ConvertKebabCaseToPascalCase(s string) string {
 	return ConvertToPascalCase(s, '-')
 }
 
+// ConvertSentenceCaseToPascalCase - wrapper for ConvertToPascalCase for specific separator (space)
 func ConvertSentenceCaseToPascalCase(s string) string {
 	return ConvertToPascalCase(s, ' ')
 }
 
-// tightly restricted pascal case converted that allows an input rune for a delimiter
+// ConvertToPascalCase - Simple PascalCase converter that splits on a single separator
 func ConvertToPascalCase(s string, sep rune) string {
 	// this is a string -> ThisIsAString
 	var output strings.Builder
