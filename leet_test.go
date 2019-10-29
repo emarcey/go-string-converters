@@ -8,7 +8,7 @@ func TestToLeetBasic(t *testing.T) {
 	leetKeys := ""
 	leetValues := ""
 
-	for k, v := range BASIC_TO_LEET_MAP {
+	for k, v := range basicToLeetMap {
 		leetKeys += string(k)
 		leetValues += string(v)
 	}
@@ -37,7 +37,7 @@ func TestFromLeetBasic(t *testing.T) {
 	leetKeys := ""
 	leetValues := ""
 
-	for k, v := range BASIC_FROM_LEET_MAP {
+	for k, v := range basicFromLeetMap {
 		leetKeys += string(k)
 		leetValues += string(v)
 	}
