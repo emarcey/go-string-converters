@@ -3,7 +3,9 @@
 # go-string-converters
 Some little helpers to make convert go strings around
 
-## Supported Conversions
+## Features
+
+### Case Conversions
 
 * PascalCase (also called UpperCamelCase)
     * Does not convert camelCase to PascalCase
@@ -18,3 +20,9 @@ Some little helpers to make convert go strings around
 * kebab-case:
     * Aggressive converter that converts any punctuation or PascalCase/camelCase to kebab-case
     * Both regular (lowercase) and SCREAMING variants
+
+
+### String Filtering
+
+Remove characters from a string by rune using helper functions.
+    * Built-in support for removing control characters, because I hate them.
