@@ -1,7 +1,6 @@
 package gostringconverters
 
 import (
-	"reflect"
 	"testing"
 )
 
