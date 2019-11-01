@@ -6,8 +6,3 @@ type SeparatedCaseOptions struct {
 	Separator   rune
 	IsScreaming bool
 }
-
-type DecomposedRune struct {
-	NextRunes map[rune]DecomposedRune
-	Value     rune
-}

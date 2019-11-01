@@ -56,7 +56,7 @@ func RuneMapToMapFunc(runeMap map[rune]rune, caseSensitive bool) func(rune) rune
 	}
 }
 
-// RuneMapConversion - given a string and a map, converts every rune in string to corresponding map value
+// RuneMapToStringConversion - given a string and a map, converts every rune in string to corresponding map value
 func RuneMapToStringConversion(s string, m map[rune]string, caseSensitive bool) string {
 	var output strings.Builder
 	for _, r := range s {
@@ -76,25 +76,4 @@ func RuneMapToStringConversion(s string, m map[rune]string, caseSensitive bool) 
 		output.WriteString(l)
 	}
 	return output.String()
-}
-
-type RuneFilterFunc func(rune) bool
-
-func FilterStringByRune(s string, filters []RuneFilterFunc) string {
-	var result strings.Builder
-	for _, r := range s {
-		if !runeIsFiltered(r) {
-			result.WriteRune(r)
-		}
-	}
-	return result.String()
-}
-
-func runeIsFiltered(r rune, filters []RuneFilterFunc) bool {
-	for _, filter := range filters {
-		if filter(r) {
-			return true
-		}
-	}
-	return false
 }
