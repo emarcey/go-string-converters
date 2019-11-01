@@ -77,3 +77,24 @@ func RuneMapToStringConversion(s string, m map[rune]string, caseSensitive bool) 
 	}
 	return output.String()
 }
+
+type RuneFilterFunc func(rune) bool
+
+func FilterStringByRune(s string, filters []RuneFilterFunc) string {
+	var result strings.Builder
+	for _, r := range s {
+		if !runeIsFiltered(r) {
+			result.WriteRune(r)
+		}
+	}
+	return result.String()
+}
+
+func runeIsFiltered(r rune, filters []RuneFilterFunc) bool {
+	for _, filter := range filters {
+		if filter(r) {
+			return true
+		}
+	}
+	return false
+}
