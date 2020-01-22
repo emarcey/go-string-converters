@@ -3,6 +3,10 @@
 # go-string-converters
 Some little helpers to make convert go strings around
 
+TO DO: Zalgo: https://stackoverflow.com/questions/6579844/how-does-zalgo-text-work
+https://zalgo.org/
+https://www.zalgotextgenerator.com/unicode
+
 ## Features
 
 ### Case Conversions
