@@ -27,5 +27,5 @@ Some little helpers to make convert go strings around
 
 ### String Filtering
 
-Remove characters from a string by rune using helper functions.
+* Remove characters from a string by rune using helper functions.
     * Built-in support for removing control characters, because I hate them.
