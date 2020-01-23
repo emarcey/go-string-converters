@@ -3,14 +3,6 @@
 # go-string-converters
 Some little helpers to make convert go strings around
 
-TO DO: Zalgo: 
-
-https://stackoverflow.com/questions/6579844/how-does-zalgo-text-work
-
-https://zalgo.org/
-
-https://www.zalgotextgenerator.com/unicode
-
 ## Features
 
 ### Case Conversions
@@ -28,6 +20,9 @@ https://www.zalgotextgenerator.com/unicode
 * kebab-case:
     * Aggressive converter that converts any punctuation or PascalCase/camelCase to kebab-case
     * Both regular (lowercase) and SCREAMING variants
+* z̵ͯ̐͗ͦa͓̺͂ͨͩl̷̨̜̔̿g̻̽̊͠͞o̻̠͗̇̀:
+    * Encoder and decoder for Zalgo functions
+
 
 
 ### String Filtering
